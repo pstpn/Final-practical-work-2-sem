@@ -1,0 +1,25 @@
+#!/usr/bin/gnuplot -persist
+reset
+NO_ANIMATION = 1
+
+set terminal svg size 720, 600
+set output './addit_matrix_graph.svg'
+set size ratio 0.5625
+
+set xlabel "ARRAY SIZE"
+set ylabel "TIME, ms"
+
+set key left top
+
+set title "Кусочно-линейный график (сложение матриц)" font "Helvetica, 24"
+
+plot './post_data/addit_matrix_graph/[addit_matrix_restrict]_O0.txt' with linespoints title "with restrict (O0)" pt 15 lt rgb "red", \
+'./post_data/addit_matrix_graph/[addit_matrix]_O0.txt' with linespoints title "without restrict (O0)" pt 14 lt rgb "red", \
+'./post_data/addit_matrix_graph/[addit_matrix_restrict]_O1.txt' with linespoints title "with restrict (O1)" pt 12 lt rgb "green", \
+'./post_data/addit_matrix_graph/[addit_matrix]_O1.txt' with linespoints title "without restrict (O1)" pt 11 lt rgb "green", \
+'./post_data/addit_matrix_graph/[addit_matrix_restrict]_O2.txt' with linespoints title "with restrict (O2)" pt 9 lt rgb "blue", \
+'./post_data/addit_matrix_graph/[addit_matrix]_O2.txt' with linespoints title "without restrict (O2)" pt 8 lt rgb "blue", \
+'./post_data/addit_matrix_graph/[addit_matrix_restrict]_O3.txt' with linespoints title "with restrict (O3)" pt 6 lt rgb "yellow", \
+'./post_data/addit_matrix_graph/[addit_matrix]_O3.txt' with linespoints title "without restrict (O3)" pt 5 lt rgb "yellow", \
+'./post_data/addit_matrix_graph/[addit_matrix_restrict]_Os.txt' with linespoints title "with restrict (Os)" pt 3 lt rgb "cyan", \
+'./post_data/addit_matrix_graph/[addit_matrix]_Os.txt' with linespoints title "without restrict (Os)" pt 2 lt rgb "cyan"

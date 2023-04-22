@@ -1,0 +1,25 @@
+#!/usr/bin/gnuplot -persist
+reset
+NO_ANIMATION = 1
+
+set terminal svg size 720, 600
+set output './sort_matrix_graph.svg'
+set size ratio 0.5625
+
+set xlabel "ARRAY SIZE"
+set ylabel "TIME, ms"
+
+set key left top
+
+set title "Кусочно-линейный график (сортировка матрицы)" font "Helvetica, 24"
+
+plot './post_data/sort_matrix_graph/[sort_matrix_cash]_O0.txt' with linespoints title "with cash (O0)" pt 15 lt rgb "red", \
+'./post_data/sort_matrix_graph/[sort_matrix]_O0.txt' with linespoints title "without cash (O0)" pt 14 lt rgb "red", \
+'./post_data/sort_matrix_graph/[sort_matrix_cash]_O1.txt' with linespoints title "with cash (O1)" pt 12 lt rgb "green", \
+'./post_data/sort_matrix_graph/[sort_matrix]_O1.txt' with linespoints title "without cash (O1)" pt 11 lt rgb "green", \
+'./post_data/sort_matrix_graph/[sort_matrix_cash]_O2.txt' with linespoints title "with cash (O2)" pt 9 lt rgb "blue", \
+'./post_data/sort_matrix_graph/[sort_matrix]_O2.txt' with linespoints title "without cash (O2)" pt 8 lt rgb "blue", \
+'./post_data/sort_matrix_graph/[sort_matrix_cash]_O3.txt' with linespoints title "with cash (O3)" pt 6 lt rgb "yellow", \
+'./post_data/sort_matrix_graph/[sort_matrix]_O3.txt' with linespoints title "without cash (O3)" pt 5 lt rgb "yellow", \
+'./post_data/sort_matrix_graph/[sort_matrix_cash]_Os.txt' with linespoints title "with cash (Os)" pt 3 lt rgb "cyan", \
+'./post_data/sort_matrix_graph/[sort_matrix]_Os.txt' with linespoints title "without cash (Os)" pt 2 lt rgb "cyan"

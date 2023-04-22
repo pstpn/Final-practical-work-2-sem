@@ -1,0 +1,22 @@
+#!/usr/bin/gnuplot -persist
+
+set key left top
+set fit prescale
+
+set xlabel "ARRAY SIZE"
+set ylabel "TIME, ms"
+
+set terminal svg size 720, 600
+set output './second_graph.svg'
+set size ratio 0.5625
+
+set key left top
+
+set title "Кусочно-линейный график c ошибкой" font "Helvetica, 24"
+
+plot './post_data/second_graph/[index]_O2.txt' with errorbars title "[index] O2" lt rgb "blue", \
+'./post_data/second_graph/[index]_O2.txt' with lines title "(MAX/MIN) [index] O2" lt rgb "blue", \
+'./post_data/second_graph/[pointers]_O2.txt' with errorbars title "[pointers] O2" lt rgb "orange", \
+'./post_data/second_graph/[pointers]_O2.txt' with lines title "(MAX/MIN) [pointers] O2" lt rgb "orange", \
+'./post_data/second_graph/[array_pointers]_O2.txt' with errorbars title "[array pointers] O2" lt rgb "green", \
+'./post_data/second_graph/[array_pointers]_O2.txt' with lines title "(MAX/MIN) [array pointers] O2" lt rgb "green"

@@ -1,0 +1,30 @@
+#!/usr/bin/gnuplot -persist
+reset
+NO_ANIMATION = 1
+
+set terminal svg size 720, 600
+set output './first_graph.svg'
+set size ratio 0.5625
+
+set xlabel "ARRAY SIZE"
+set ylabel "TIME, ms"
+
+set key left top
+
+set title "Кусочно-линейный график" font "Helvetica, 24"
+
+plot './post_data/first_graph/[index]_O0.txt' with linespoints title "[index] O0" pt 15 lt rgb "red", \
+'./post_data/first_graph/[pointers]_O0.txt' with linespoints title "[pointers] O0" pt 14 lt rgb "red", \
+'./post_data/first_graph/[array_pointers]_O0.txt' with linespoints title "[array pointers] O0" pt 13 lt rgb "red", \
+'./post_data/first_graph/[index]_O1.txt' with linespoints title "[index] O1" pt 12 lt rgb "green", \
+'./post_data/first_graph/[pointers]_O1.txt' with linespoints title "[pointers] O1" pt 11 lt rgb "green", \
+'./post_data/first_graph/[array_pointers]_O1.txt' with linespoints title "[array pointers] O1" pt 10 lt rgb "green", \
+'./post_data/first_graph/[index]_O2.txt' with linespoints title "[index] O2" pt 9 lt rgb "blue", \
+'./post_data/first_graph/[pointers]_O2.txt' with linespoints title "[pointers] O2" pt 8 lt rgb "blue", \
+'./post_data/first_graph/[array_pointers]_O2.txt' with linespoints title "[array pointers] O2" pt 7 lt rgb "blue", \
+'./post_data/first_graph/[index]_O3.txt' with linespoints title "[index] O3" pt 6 lt rgb "yellow", \
+'./post_data/first_graph/[pointers]_O3.txt' with linespoints title "[pointers] O3" pt 5 lt rgb "yellow", \
+'./post_data/first_graph/[array_pointers]_O3.txt' with linespoints title "[array pointers] O3" pt 4 lt rgb "yellow", \
+'./post_data/first_graph/[index]_Os.txt' with linespoints title "[index] Os" pt 3 lt rgb "cyan", \
+'./post_data/first_graph/[pointers]_Os.txt' with linespoints title "[pointers] Os" pt 2 lt rgb "cyan", \
+'./post_data/first_graph/[array_pointers]_Os.txt' with linespoints title "[array pointers] Os" pt 1 lt rgb "cyan"
